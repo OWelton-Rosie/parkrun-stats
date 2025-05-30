@@ -21,7 +21,7 @@ function generateSummary() {
   let lines = [];
 
   if (!isNaN(totalRuns)) {
-    lines.push(`- ${ordinal(totalRuns)} parkrun`);
+    lines.push(`- ${ordinal(totalRuns)} parkrun (lifetime)`);
   }
 
   if (!isNaN(locationRuns) && locationName !== "") {
@@ -33,7 +33,11 @@ function generateSummary() {
   }
 
   if (gender && !isNaN(genderPlace)) {
-    lines.push(`- ${ordinal(genderPlace)} ${gender}`);
+    if (gender === "other") {
+      lines.push(`- ${ordinal(genderPlace)} in my gender category`);
+    } else {
+      lines.push(`- ${ordinal(genderPlace)} ${gender}`);
+    }
   }
 
   if (!isNaN(agePlace)) {
@@ -65,4 +69,29 @@ function generateSummary() {
     output.style.display = 'block';
     copyBtn.style.display = 'none';
   }
+}
+
+function ordinal(n) {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
+
+function copyToClipboard() {
+  const text = document.getElementById('output').innerText;
+  const copyBtn = document.getElementById('copyBtn');
+  if (text.trim()) {
+    navigator.clipboard.writeText(text).then(() => {
+      copyBtn.innerText = 'Copied!';
+      setTimeout(() => {
+        copyBtn.innerText = 'Copy to Clipboard';
+      }, 2000);
+    });
+  }
+}
+
+function toggleGenderPlace() {
+  const gender = document.getElementById('gender').value;
+  const wrapper = document.getElementById('genderPlaceWrapper');
+  wrapper.style.display = gender ? 'block' : 'none';
 }
