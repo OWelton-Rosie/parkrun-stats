@@ -54,3 +54,13 @@ body {
   .copy-btn:hover {
     background-color: #0056b3;
   }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: #007bff;
+    text-decoration: none;
+  }
