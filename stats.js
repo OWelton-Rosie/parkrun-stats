@@ -58,7 +58,7 @@ function generateSummary() {
   if (gender && !isNaN(genderPlace)) {
     lines.push(
       gender === 'other'
-        ? `- ${ordinal(genderPlace)} in my gender category`
+        ? `- ${ordinal(genderPlace)} in my gender`
         : `- ${ordinal(genderPlace)} ${gender}`
     );
   }
@@ -86,18 +86,6 @@ function ordinal(n) {
   return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
 
-function copyToClipboard() {
-  const text = document.getElementById('output').innerText;
-  const copyBtn = document.getElementById('copyBtn');
-  if (text.trim()) {
-    navigator.clipboard.writeText(text).then(() => {
-      copyBtn.innerText = 'Copied!';
-      setTimeout(() => {
-        copyBtn.innerText = 'Copy to Clipboard';
-      }, 2000);
-    });
-  }
-}
 
 function toggleGenderPlace() {
   const gender = document.getElementById('gender').value;
