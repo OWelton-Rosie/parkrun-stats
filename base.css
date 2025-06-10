@@ -55,22 +55,14 @@ body {
     background-color: #0056b3;
   }
 
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #007bff;
-    text-decoration: none;
-  }
-
+  a,
   a:visited {
     color: #007bff;
     text-decoration: none;
   }
 
+  a:hover,
   a:visited:hover {
-    color: #0056b3;
+    color: #007bff;
     text-decoration: none;
   }
