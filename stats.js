@@ -7,6 +7,7 @@ function generateSummary() {
   const gender = document.getElementById('gender').value;
   const genderPlace = parseInt(document.getElementById('genderPlace').value);
   const agePlace = parseInt(document.getElementById('agePlace').value);
+  const isPb = document.getElementById('isPb').checked;
 
   const output = document.getElementById('output');
   const copyBtn = document.getElementById('copyBtn');
@@ -42,6 +43,10 @@ function generateSummary() {
 
   // Build summary lines
   const lines = [];
+
+  if (isPb) {
+    lines.unshift(`- parkrun PB 🎉`);
+  }
 
   if (!isNaN(totalRuns)) {
     lines.push(`- ${ordinal(totalRuns)} parkrun (lifetime)`);
@@ -85,7 +90,6 @@ function ordinal(n) {
   const v = n % 100;
   return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
-
 
 function toggleGenderPlace() {
   const gender = document.getElementById('gender').value;
