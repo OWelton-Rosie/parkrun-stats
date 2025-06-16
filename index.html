@@ -22,12 +22,12 @@
   <div class="container js-required">
     <h1>Parkrun Stats Generator</h1>
 
-    <input type="number" id="totalRuns" placeholder="Total parkruns completed" min="1" />
-    <input type="number" id="locationRuns" placeholder="Number of parkruns at this location" min="0" />
-    <input type="text" id="locationName" placeholder="Location name (e.g. Waitangi)" />
+    <input type="number" id="totalRuns" placeholder="Total parkruns completed" min="1">
+    <input type="number" id="locationRuns" placeholder="Number of parkruns at this location" min="0">
+    <input type="text" id="locationName" placeholder="Location name (e.g. Waitangi)">
 
-    <input type="number" id="overallPlace" placeholder="Overall place (e.g. 172)" min="1" />
-    <input type="number" id="totalRunners" placeholder="Total runners (e.g. 387)" min="1" />
+    <input type="number" id="overallPlace" placeholder="Overall place (e.g. 172)" min="1">
+    <input type="number" id="totalRunners" placeholder="Total runners (e.g. 387)" min="1">
 
     <select id="gender" onchange="toggleGenderPlace()">
       <option value="" disabled selected>Select gender</option>
@@ -35,12 +35,18 @@
       <option value="female">Female</option>
       <option value="other">Other</option>
     </select>
-    
+
     <div id="genderPlaceWrapper" style="display: none;">
-      <input type="number" id="genderPlace" placeholder="Place in gender" min="1" />
+      <input type="number" id="genderPlace" placeholder="Place in gender" min="1">
     </div>
 
-    <input type="number" id="agePlace" placeholder="Place in age category" min="1" />
+    <input type="number" id="agePlace" placeholder="Place in age category" min="1">
+
+    <!-- Parkrun PB Checkbox -->
+    <div class="checkbox-wrapper">
+      <input type="checkbox" id="isPb">
+      <label for="isPb">This was a parkrun PB 🎉</label>
+    </div>
 
     <button onclick="generateSummary()">Generate Summary</button>
 
